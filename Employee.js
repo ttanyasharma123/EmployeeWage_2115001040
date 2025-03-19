@@ -63,6 +63,27 @@ for (let day =0; day<NUM_OF_WORKING_DAYS; day++){
   }
    empWage = totalEmpHrs * WAGE_PER_HOUR;
    console.log("UC5- Total Days: " + totalWorkingDays + "Total Hrs:" + totalEmpHrs + "Emp Wage: " + empWage);
+   //UC6
+   function calcDailyWage(empHrs){
+    return empHrs * WAGE_PER_HOUR;
+
+   }
+     const MAX_HRS_IN_MONTHS = 160;
+     const WORKING_DAYS = 20;
+     totalEmpHrs = 0;
+     totalWorkingDays = 0;
+     empDailyWageArr = new Array();
+     while (totalEmpHrs <= MAX_HRS_IN_MONTHS && totalWorkingDays < NUM_OF_WORKING_DAYS){
+        totalWorkingDays++;
+        let empCheck = Math.floor(Math.random()*10) %3;
+        let empHrs = getWorkingHours(empCheck);
+        totalEmpHrs += empHrs;
+        empDailyWageArr.push(calcDailyWage(empHrs));
+     }
+     empWage = calcDailyWage(totalEmpHrs);
+     console.log("UC6 - Total Days :" + totalWorkingDays + "Total Hrs:" + totalEmpHrs + "Emp Wage:" + empWage);
+
+
 
 
 
