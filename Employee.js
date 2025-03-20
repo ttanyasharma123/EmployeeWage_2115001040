@@ -144,6 +144,36 @@ for (let day =0; day<NUM_OF_WORKING_DAYS; day++){
      }
      console.log ("UC 7G - Number of Days Emp Worked :"+ empDailyWageArr.reduce(totalDaysWorked,0));
 
+     //UC8 
+       const _HRS_IN_MONTHS = 160;
+     const  NUM_OF_WORKING_DAYYS = 20;
+      totalEmpHrs = 0;
+     totalWorkingDays = 0;
+     empDailyWageArr = new Array();
+     empDailyWageMap = new Map();
+     function calcDailyWage(empHrs){
+        return empHrs*WAGE_PER_HOUR;
+
+     }
+     while (totalEmpHrs<= _HRS_IN_MONTHS && totalWorkingDays< NUM_OF_WORKING_DAYYS){
+        totalWorkingDays++;
+        let empCheck = Math.floor(Math.random()*10)%3;
+        let empHrs = getWorkingHours(empCheck);
+        totalEmpHrs += empHrs;
+        empDailyWageArr.push(calcDailyWage(empHrs));
+        empDailyWageMap.set(totalWorkingDays, calcDailyWage(empHrs));
+
+     }
+
+     console.log (empDailyWageMap);
+     function totalWages(totalWage, dailyWage){
+        return totalWage + dailyWage;
+     }
+     console.log("UC7A- Emp Wage Map totalHrs:" + Array.from(empDailyWageMap.values()).reduce(totalWages, 0));
+
+
+
+
 
 
 
