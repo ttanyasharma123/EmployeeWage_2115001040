@@ -241,32 +241,76 @@ console.log("\nUC 11C PartWorkingDaysStrings: "+ partWorkingDaysStrArr);
   .map (dailyHrsAndWage => dailyHrsAndWage.dayNUm);
   console.log("UC 11D NonWorkingDaysNums :"+nonWorkingDaysNums);
 
-//UC11 Class
+// //UC11 Class
+// class EmployeePayrollData{
+//    id;
+//    salary;
+//    //Constructor
+//    constructor (id,name,salary){
+//       this.id= id;
+//       this.name = name;
+//       this.salary= salary;
+//    }
+
+//    //getetr and setter method 
+//    get name() {return this._name;}
+//    set name(name){this._name = name; }
+
+//    //method
+//    toString(){
+//       return "id=" + this.id +", name '" + this.name +",salary=" + this.salary;
+      
+//    }
+// }
+
+//  EmployeePayrollData = new EmployeePayrollData(1, "Tanya",50000);
+// console.log(EmployeePayrollData.toString());
+// EmployeePayrollData.name = "Tanu";
+// console.log(EmployeePayrollData.toString());
+
+
+//UC12
 class EmployeePayrollData{
+   //Property
    id;
    salary;
+   gender;
+   startDate;
    //Constructor
-   constructor (id,name,salary){
-      this.id= id;
-      this.name = name;
-      this.salary= salary;
-   }
+   constructor(...params){
+      this.id = params[0];
+      this.name = params[1];
+      this.salary = params[2];
+      this.gender = params[3];
+         this.startDate = params[4];
 
-   //getetr and setter method 
-   get name() {return this._name;}
-   set name(name){this._name = name; }
-
-   //method
-   toString(){
-      return "id=" + this.id +", name '" + this.name +",salary=" + this.salary;
       
    }
-}
+   //getter and setter method 
+   get name() {return this._name; }
+   set name(name){this._name = name; }
 
- EmployeePayrollData = new EmployeePayrollData(1, "Tanya",50000);
-console.log(EmployeePayrollData.toString());
-EmployeePayrollData.name = "Tanu";
-console.log(EmployeePayrollData.toString());
+   //method 
+   toString(){
+      const options = {year: 'numeric',month:'long', day: 'numeric'};
+      const empDate = this.startDate === undefined ? "undefined" :
+      this.startDate instanceof Date ? this.startDate.toLocaleDateString("en-US", options) : "undefined";
+
+      
+      return "id=" +this.id +", name='" + this.name +",salary=" +this.salary + "," +
+      "gender=" +this.gender +", startdate=" +empDate;
+   }
+}
+let emp1 = new EmployeePayrollData(1, "Tanya", 50000);
+console.log(emp1.toString());
+
+
+emp1.name = "Tanu";  
+console.log(emp1.toString());
+
+
+let newEmployeePayrollData = new EmployeePayrollData(2, "Tanishka", 50000, "F", new Date());
+console.log(newEmployeePayrollData.toString());
 
 
 
