@@ -241,7 +241,32 @@ console.log("\nUC 11C PartWorkingDaysStrings: "+ partWorkingDaysStrArr);
   .map (dailyHrsAndWage => dailyHrsAndWage.dayNUm);
   console.log("UC 11D NonWorkingDaysNums :"+nonWorkingDaysNums);
 
+//UC11 Class
+class EmployeePayrollData{
+   id;
+   salary;
+   //Constructor
+   constructor (id,name,salary){
+      this.id= id;
+      this.name = name;
+      this.salary= salary;
+   }
 
+   //getetr and setter method 
+   get name() {return this._name;}
+   set name(name){this._name = name; }
+
+   //method
+   toString(){
+      return "id=" + this.id +", name '" + this.name +",salary=" + this.salary;
+      
+   }
+}
+
+ EmployeePayrollData = new EmployeePayrollData(1, "Tanya",50000);
+console.log(EmployeePayrollData.toString());
+EmployeePayrollData.name = "Tanu";
+console.log(EmployeePayrollData.toString());
 
 
 
